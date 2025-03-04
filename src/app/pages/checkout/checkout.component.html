@@ -1,0 +1,93 @@
+<!-- src/app/pages/checkout/checkout.component.html -->
+<section>
+  <div class=" min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-3xl mx-auto p-6">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border dark:border-gray-600">
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+        {{ 'checkout.Checkout' | translate }}
+      </h1>
+
+      <!-- Shipping Address -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">
+          {{ 'checkout.Shipping_Address' | translate }}
+        </h2>
+<!-- form -->
+        <form [formGroup]="checkOutForm">
+          <!-- Details -->
+          <div class="mb-4">
+            <label for="details" class="block text-gray-700 dark:text-white mb-1">
+              {{ 'checkout.Details' | translate }}
+            </label>
+            <textarea
+              formControlName="details"
+              id="details"
+              class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+
+          <!-- City -->
+          <div class="mb-4">
+            <label for="city" class="block text-gray-700 dark:text-white mb-1">
+              {{ 'checkout.City' | translate }}
+            </label>
+            <input
+              formControlName="city"
+              type="text"
+              id="city"
+              class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Phone -->
+          <div class="mb-4">
+            <label for="phone" class="block text-gray-700 dark:text-white mb-1">
+              {{ 'checkout.Phone_Number' | translate }}
+            </label>
+            <input
+              formControlName="phone"
+              type="tel"
+              id="phone"
+              class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Payment method -->
+          <div class="grid sm:grid-cols-2 gap-4">
+
+          <!-- Visa -->
+            <button
+              [disabled]="checkOutForm.invalid"
+              (click)="submitForm()"
+              type="submit"
+              class="w-full max-w-lg px-4 py-2 text-white font-semibold rounded-lg transition 
+                     bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 
+                     dark:bg-blue-500 dark:hover:bg-blue-600 dark:disabled:bg-gray-600 flex items-center justify-center gap-1 "
+            >
+            <span> 
+              <img  src="/images/visa.png" alt="">
+             </span>
+             <span>
+               {{ 'checkout.Payment' | translate }}
+             </span>
+            </button>
+          <!-- Cash -->
+            <button
+              [disabled]="checkOutForm.invalid"
+              (click)="payLater()"
+              type="button"
+              class="w-full max-w-lg px-4 py-2 text-white font-semibold rounded-lg transition 
+                     bg-gray-600 hover:bg-gray-700 disabled:bg-gray-400 
+                     dark:bg-gray-500 dark:hover:bg-gray-600 dark:disabled:bg-gray-600"
+            >
+            <span> <i class="fas fa-money-bill-wave"></i> </span>
+              Pay Cash
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+

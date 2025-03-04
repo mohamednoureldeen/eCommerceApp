@@ -1,0 +1,111 @@
+<!-- src/app/pages/details/details.component.html -->
+<section>
+  @if (detailsProduct()) {
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Product Images -->
+      <div class="flex flex-col gap-4  md:flex-row items-center ms-auto md:items-start  ">
+        <!-- small images -->
+        <div class="flex md:flex-col gap-2 ">
+          @for (img of productImages(); track $index) {
+            <img
+              [src]="img"
+              alt="Thumbnail"
+              class="w-16 h-16 md:w-20 md:h-20 shadow-2xl rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-transform duration-200 hover:scale-110"
+              (click)="setMainImage(img)"
+              (mouseenter)="setMainImage(img)"
+            />
+          }
+        </div>
+        <!-- main image -->
+         <div  class="w-full md:w-3/4 md:hover:scale-[1.3] transition-transform duration-200 cursor-zoom-in ">
+          <img
+            [src]="detailsProduct()?.imageCover"
+            alt="{{ detailsProduct()?.title }}"
+            class="w-full max-w-[450px] h-auto rounded-lg shadow-md"
+            id="mainImage"
+          />
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div class="w-full">
+        <h2 class="text-3xl font-bold mb-2">{{ detailsProduct()?.title }}</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-2">
+          SKU: {{ detailsProduct()?.sold }}
+        </p>
+        <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+          {{ detailsProduct()?.price }} L.E
+        </span>
+
+        <!-- Ratings -->
+        <div class="flex items-center mt-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+            class="w-6 h-6 text-yellow-500">
+            <path fill-rule="evenodd"
+              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+              clip-rule="evenodd" />
+          </svg>
+          <span class="ml-2 text-gray-600 dark:text-gray-400">
+            {{ detailsProduct()?.ratingsAverage }} ({{ detailsProduct()?.ratingsQuantity }} reviews)
+          </span>
+        </div>
+
+        <p class="text-gray-700 dark:text-gray-300 mt-4">
+          {{ detailsProduct()?.description }}
+        </p>
+        <div class="mt-4">
+          <h3 class="text-lg font-semibold">Color:</h3>
+          <div class="flex space-x-2 mt-2">
+            <button class="w-8 h-8 bg-black rounded-full focus:ring-2 focus:ring-black"></button>
+            <button class="w-8 h-8 bg-gray-300 rounded-full focus:ring-2 focus:ring-gray-300"></button>
+            <button class="w-8 h-8 bg-blue-500 rounded-full focus:ring-2 focus:ring-blue-500"></button>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
+          <span class="text-gray-600 dark:text-gray-300">
+            In Stock: {{ detailsProduct()?.quantity }}
+          </span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex space-x-4 mt-6">
+          <button (click)="addToCart(detailsProduct()!.id)"
+            class="bg-green-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+          <button
+            (click)="addToWishlist(detailsProduct()!.id)"
+            class="bg-gray-200 flex gap-2 items-center text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:ring-2 focus:ring-gray-500">
+            ❤️ Wishlist
+          </button>
+        </div>
+        <!-- Key Features -->
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold">Key Features:</h3>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>{{ detailsProduct()?.description }}</li>
+            <li>{{ detailsProduct()?.category?.name }}</li>
+            <li>{{ detailsProduct()?.brand?.name }}</li>
+            <img [src]="detailsProduct()?.brand?.image" alt="Brand" class="h-10 w-auto mt-2" />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="flex items-center justify-center h-[calc(100vh-4rem)]">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Product Not Found</h2>
+      <p class="text-gray-600 dark:text-gray-300">The product you are looking for does not exist.</p>
+    </div>
+  </div>
+}
+</section>
+
+
+
+
+

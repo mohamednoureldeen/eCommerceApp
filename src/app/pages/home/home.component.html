@@ -1,0 +1,87 @@
+<!-- src/app/pages/home/home.component.html -->
+
+<!-- coursel -->
+<section>
+  <div class="flex flex-col md:grid md:grid-cols-[80%_minmax(0,1fr)] gap-4  ">
+
+    <div>
+      <owl-carousel-o [options]="customMainSlider">
+        <ng-template carouselSlide>
+          <img src="images/online-shopping.jpg" class="w-full h-[200px] sm:h-[250px] md:h-[300px] object-fill" alt="">
+        </ng-template>  
+        <ng-template carouselSlide>
+          <img src="images/ecommerce_website_banner.jpg" class="w-full h-[200px] sm:h-[250px] md:h-[300px] object-fill" alt="">
+        </ng-template> 
+        <ng-template carouselSlide>
+          <img src="images/ecommerce_website_banner.jpg" class="w-full h-[200px] sm:h-[250px] md:h-[300px] object-fill" alt="">
+        </ng-template> 
+        <ng-template carouselSlide>
+          <img src="images/img4.avif" class="w-full h-[200px] sm:h-[250px] md:h-[300px] object-fill" alt="">
+        </ng-template> 
+        <ng-template carouselSlide>
+          <img src="images/img5.avif" class="w-full h-[200px] sm:h-[250px] md:h-[300px] object-fill" alt="">
+        </ng-template> 
+        <ng-template carouselSlide>
+          <img src="images/12-e-commerce-banner-png.png" class="w-full h-[200px] sm:h-[250px] md:h-[300px] object-fill" alt="">
+        </ng-template>   
+      </owl-carousel-o>
+    </div>
+    
+    <div class="flex  items-center justify-center  ">
+      <img src="images/Picture1.png" class="w-full   h-[80%] sm:h-[80%] object-cover" alt="">
+    </div>
+  </div>
+</section>
+<!-- horizontal banner -->
+<div class="py-10">
+  <img src="images/flat-horizontal-banner-11.jpg" alt="">
+</div>
+<!-- coursel -->
+<section>
+  <h2 class="text-4xl py-11">{{'home.Categories'|translate}}</h2>
+  <owl-carousel-o [options]="customOptions">
+    @for (cate of categories(); track cate._id) {
+      <ng-template carouselSlide>
+      <div class="flex flex-col items-center">
+        <img [src]="cate.image" class="w-full h-[250px] " [alt]="cate.name">
+        <h3 class="text-green-600 font-bold dark:text-white">{{cate.name}}</h3>
+      </div>
+      </ng-template>
+    }
+  </owl-carousel-o>
+</section>
+<!-- horizontal banner -->
+<div class="flex justify-center py-2  ">
+  <img src="images/ahly000_topstrip_ar_web.svg" alt="">
+</div>
+
+<!-- popular products -->
+<section>
+
+  <div class="text-center py-10">
+    <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-2">Discover Our Bestsellers!</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+        Handpicked products that everyone loves. Find your new favorite!
+    </p>
+</div>
+
+
+<!-- search component ../../shared/components/ui/search-input -->
+<div>
+<app-search-input (searchChange)="onSearchInputChange($event)">
+</app-search-input>
+</div>
+<!-- horizontal banner -->
+<div class="relative hidden md:block my-10">
+  <img src="images/Frame 74.png" alt="" class="w-full h-auto">
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-white opacity-80"></div>
+</div>
+<!-- products -->
+<div class="md:mt-[-150px] md:p-7 p-5">
+  <!-- src/app/shared/components/ui/card-for-orders -->
+  <app-card-for-orders  [products]="products().slice(0, 12) | search: searchQuery">
+  </app-card-for-orders>
+</div>
+
+</section>  
+

@@ -1,0 +1,8 @@
+// solving space between header and footer
+:host {
+    display: flex; /* Enables flexbox layout for the host element */
+    flex-direction: column; /* Arranges child elements in a vertical column */
+    justify-content: space-between; /* Distributes space between child elements, with one at the top and one at the bottom */
+    min-height: 100vh; /* Ensures the element takes at least the full viewport height */
+}
+// solving space between header and footer

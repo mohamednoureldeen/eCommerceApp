@@ -1,0 +1,193 @@
+<!-- src/app/layouts/footer/footer.component.html -->
+<footer class="bg-gray-50 lg:grid lg:grid-cols-5 dark:bg-gray-900 mt-10">
+  <div class="relative block h-32 lg:col-span-2 lg:h-full">
+    <img
+      src="/images/footer.jpg"
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </div>
+
+  <div class="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <div>
+        <p>
+          <span
+            class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+          >
+            Call us
+          </span>
+
+          <a
+            class="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl dark:text-white"
+          >
+            0123456789
+          </a>
+        </p>
+
+        <ul class="mt-8 space-y-1 text-sm text-gray-700 dark:text-gray-200">
+          <li>Monday to Friday: 10am - 5pm</li>
+          <li>Weekend: 10am - 3pm</li>
+        </ul>
+        <ul class="mt-8 flex gap-6">
+          <li>
+            <a class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600"
+              ><i class="fab fa-facebook text-blue-600 text-xl"></i
+            ></a>
+          </li>
+          <li>
+            <a class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600"
+              ><i class="fab fa-twitter text-blue-400 text-xl"></i
+            ></a>
+          </li>
+          <li>
+            <a class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600"
+              ><i class="fab fa-instagram text-pink-500 text-xl"></i
+            ></a>
+          </li>
+          <li>
+            <a class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600"
+              ><i class="fab fa-youtube text-red-600 text-xl"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <p class="font-medium text-gray-900 dark:text-white">
+            Most Researched
+          </p>
+
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                Laptop
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                Mobile Devices
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                Wearables
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                Personal Care For Him
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                TV Accessories
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-medium text-gray-900 dark:text-white">FreshCart</p>
+
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                About
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                Enjoy with us Buy Online or Pickup in Store
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+              >
+                More than 50 Stores at your service anywhere
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--Download Our App Now -->
+    <div class="mt-12 flex flex-col gap-4 items-center p-4">
+      <p class="font-medium text-gray-900 dark:text-white">
+        Download Our App Now
+      </p>
+      <div class="flex gap-4">
+        <div>
+          <img class="w-[100px]" src="images/apple_new.png" alt="" />
+        </div>
+        <div>
+          <img class="w-[100px]" src="images/google_new.png" alt="" />
+        </div>
+        <div>
+          <img class="w-[100px]" src="images/huawei_new.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- app chat component -->
+
+    <app-chat></app-chat>
+    <!-- end -->
+
+    <div class="border-t border-gray-100 pt-3 dark:border-gray-800">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <ul class="flex flex-wrap gap-4 text-xs">
+          <li>
+            <a
+              class="text-gray-500 transition hover:opacity-75 dark:text-gray-400"
+            >
+              Terms & Conditions
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="text-gray-500 transition hover:opacity-75 dark:text-gray-400"
+            >
+              Privacy Policy
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="text-gray-500 transition hover:opacity-75 dark:text-gray-400"
+            >
+              Cookies
+            </a>
+          </li>
+        </ul>
+
+        <p class="mt-8 text-xs text-gray-500 sm:mt-0 dark:text-gray-400">
+          &copy; 2022. FREASH CART. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,68 @@
+{
+    "navbar": {
+      "home": "الرئيسية",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "brands": "العلامات التجارية",
+      "register": "التسجيل",
+      "login": "تسجيل الدخول",
+      "logout": "تسجيل الخروج",
+      "lang": "اللغة"
+    },
+    "home": {
+      "Popular_Products": "المنتجات الشائعة",
+      "Categories": "الفئات"
+    },
+    "register": {
+      "Register": "التسجيل",
+      "Name": "الاسم",
+      "Email": "البريد الإلكتروني",
+      "Password": "كلمة المرور",
+      "Confirm_Password": "تأكيد كلمة المرور",
+      "Phone_Number": "رقم الهاتف",
+      "sign_up": "إنشاء حساب"
+    },
+    "login": {
+      "Login": "تسجيل الدخول",
+      "Email": "البريد الإلكتروني",
+      "Password": "كلمة المرور",
+      "sign_in": "تسجيل الدخول",
+      "forgot_password": "نسيت كلمة المرور"
+    },
+    "forgotpassword": {
+      "Forgot_Password": "نسيت كلمة المرور",
+      "Email": "البريد الإلكتروني",
+      "send": "إرسال",
+      "back_to_login": "العودة لتسجيل الدخول",
+      "code": "الرمز:",
+      "confirm_code": "تأكيد الرمز",
+      "reset_password": "إعادة تعيين كلمة المرور",
+      "new_password": "كلمة المرور الجديدة",
+      "confirm": "تأكيد"
+    },
+    "messages": {
+      "This_field_is_required": "هذا الحقل مطلوب.",
+      "Must_be_at_least_3_characters_long": "يجب أن يكون 3 أحرف على الأقل.",
+      "Must_be_at_most_20_characters_long": "يجب ألا يزيد عن 20 حرفًا.",
+      "Must_be_a_valid_email": "يجب أن يكون بريدًا إلكترونيًا صالحًا.",
+      "Must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter_one_lowercase_letter_and_one_number": "يجب أن يكون 8 أحرف على الأقل ويحتوي على حرف كبير وحرف صغير ورقم واحد على الأقل.",
+      "Must_be_a_valid_Egyptian_phone_number": "يجب أن يكون رقم هاتف مصري صحيح.",
+      "Passwords_must_match": "يجب أن تتطابق كلمات المرور.",
+      "Email_already_exists": "البريد الإلكتروني مسجل بالفعل.",
+      "Remember_your_password": "هل تتذكر كلمة المرور؟",
+      "Please_include_a_valid_email_address_so_we_can_get_back_to_you": "يرجى إدخال بريد إلكتروني صالح حتى نتمكن من الرد عليك."
+    },
+    "checkout": {
+      "Checkout": "إتمام الشراء",
+      "Shipping_Address": "عنوان الشحن",
+      "Details": "التفاصيل",
+      "City": "المدينة",
+      "Phone_Number": "رقم الهاتف",
+      "Place_Order": "إتمام الطلب",
+      "Payment": "الدفع"
+    },
+    "products": {
+      "All_Products": "جميع المنتجات"
+    }
+  }
+  

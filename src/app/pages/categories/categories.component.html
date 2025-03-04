@@ -1,0 +1,32 @@
+<!-- /* src/app/pages/categories/categories.component.html -->
+
+<section class=" transition-colors duration-200">
+    <div class="relative  ">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center">Our Categories</h2>
+        <p class="pt-6 pb-8 text-base max-w-2xl text-center m-auto">
+            Lorem ipsum dolor sit amet
+            consectetur adipisicing elit nam maxime quas fugiat tempore blanditiis, eveniet quia accusantium.
+        </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                @for (categ of categories(); track $index) {
+    
+                    <div class=" card bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transform transition-all hover:-translate-y-2 hover:shadow-2xl">
+                        <img [src]="categ.image" 
+                            alt="Casual Wear" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-primary-800 dark:text-white">{{categ.name}}</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <p class="text-primary-600 font-bold"> Updated At: <span class="text-gray-600 dark:text-gray-300 font-normal">{{categ.updatedAt |date:'mm/dd/yyyy' }}</span></p>
+                            </div>
+                            <span class="bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-xs">In Stock</span>
+
+                            <button  class="btn-main" (click)="getSpecificCategories(categ._id)">More Details</button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>

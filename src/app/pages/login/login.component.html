@@ -1,0 +1,75 @@
+<!-- src/app/pages/login/login.component.html -->
+
+<section 
+ class="mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 shadow-lg sm:w-3/4 md:w-1/2 lg:w-1/3">
+  <h1 class="text-center text-3xl font-semibold text-green-600 dark:text-teal-300">{{ 'login.Login' | translate }}</h1>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <!-- حقل البريد الإلكتروني -->
+      <div class="mb-4">
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              {{ 'login.Email' | translate }}
+          </label>
+          <input formControlName="email" type="email" id="email" 
+              class="w-full p-3 rounded-lg border border-gray-300 text-gray-900 dark:text-white dark:bg-gray-800 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500" />
+
+          @let emailControl = loginForm.get('email');
+          @if (emailControl?.errors && emailControl?.touched) {
+              <div class="mt-2 text-red-600 dark:text-red-400 text-sm">
+                  @if (emailControl?.hasError('required')) {
+                      <p>{{ 'messages.This_field_is_required' | translate }}</p>
+                  }
+                  @else if (emailControl?.hasError('email')) {
+                      <p>{{ 'messages.Must_be_a_valid_email' | translate }}</p>
+                  }
+              </div>
+          }
+      </div>
+
+      <!-- حقل كلمة المرور -->
+      <div class="mb-4">
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              {{ 'login.Password' | translate }}
+          </label>
+          <input formControlName="password" type="password" id="password" 
+              class="w-full p-3 rounded-lg border border-gray-300 text-gray-900 dark:text-white dark:bg-gray-800 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500" />
+
+          @let passwordControl = loginForm.get('password');
+          @if (passwordControl?.errors && passwordControl?.touched) {
+              <div class="mt-2 text-red-600 dark:text-red-400 text-sm">
+                  @if (passwordControl?.hasError('required')) {
+                      <p>{{ 'messages.This_field_is_required' | translate }}</p>
+                  }
+                  @else if (passwordControl?.hasError('pattern')) {
+                      <p>{{ 'messages.Must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter_one_lowercase_letter_and_one_number' | translate }}</p>
+                  }
+              </div>
+          }
+      </div>
+
+      <!-- زر تسجيل الدخول -->
+      <div class="flex flex-col gap-3 items-center">
+          <button [disabled]="isLoading" type="submit" 
+              class="w-full p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition">
+              {{ 'login.sign_in' | translate }}
+              @if (isLoading) {
+                  <span><i class="fas fa-spin fa-spinner"></i></span>
+              }
+          </button>
+
+          <!-- عرض رسائل الخطأ أو النجاح -->
+          @if (msgError) {
+              <p class="w-full text-center bg-red-600 text-white p-2 rounded-lg">{{ msgError }}</p>
+          }
+          @if (success) {
+              <p class="w-full text-center bg-green-500 text-white p-2 rounded-lg">{{ success }}</p>
+          }
+
+          <!-- رابط استرجاع كلمة المرور -->
+          <a class="text-sm font-medium text-green-600 hover:underline dark:text-green-400" routerLink="/forgot">
+              {{ 'login.forgot_password' | translate }}
+          </a>
+      </div>
+  </form>
+</section>
+

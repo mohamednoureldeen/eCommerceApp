@@ -1,0 +1,70 @@
+<!-- src/app/pages/allorders/allorders.component.html -->
+<section class=" p-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+        Your Orders
+      </h2>
+    </div>
+
+    @for (order of allOrders; track order.id) {
+    <!-- Order Card -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md mb-4">
+      <div class="flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Order# {{ order.id }}
+        </h3>
+        <span
+          class="px-3 py-1 rounded-full text-sm font-medium text-white"
+          [ngClass]="{
+            'bg-green-500': order.isPaid,
+            'bg-red-500': !order.isPaid
+          }"
+        >
+          {{ order.isPaid ? "Paid" : "Not Paid" }}
+        </span>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300 mt-2">
+        Customer: {{ order.user.name }}
+      </p>
+      <p class="text-gray-600 dark:text-gray-300">
+        Payment Method: {{ order.paymentMethodType }}
+      </p>
+      <p class="text-gray-600 dark:text-gray-300">
+        Total Price: {{ order.totalOrderPrice }}
+      </p>
+      <p
+        [ngClass]="{
+          'text-green-500': order.isDelivered,
+          'text-red-500': !order.isDelivered
+        }"
+        class="mt-2"
+      >
+        {{ order.isDelivered ? "Delivered" : "Not Delivered" }}
+      </p>
+      <!-- Ordered Items -->
+      <div class="mt-4 grid gap-3">
+        @for (item of order.cartItems; track item._id ) {
+        <div
+          class="flex items-center space-x-4 bg-gray-100 dark:bg-gray-700 p-3 rounded-lg"
+        >
+          <img
+            [src]="item.product.imageCover"
+            alt="Product 1"
+            class="w-16 h-16 rounded-md"
+          />
+          <div>
+            <p class="text-gray-800 dark:text-gray-100 font-medium">
+              {{ item.product.title }}
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
+              Quantity: {{ item.count }} - Price: {{ item.price }}
+            </p>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</section>

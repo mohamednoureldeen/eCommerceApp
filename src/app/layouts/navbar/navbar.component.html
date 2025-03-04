@@ -1,0 +1,233 @@
+<!-- src/app/layouts/navbar/navbar.component.html -->
+ <!-- space -->
+<div class="h-16"></div>
+
+<!-- Navbar -->
+<nav class="bg-gray-100 border-gray-200 dark:bg-gray-900 navbar py-4 fixed top-0 left-0  transition-all duration-300 w-full z-[999]  "
+[class.shrink]="isScrolled"
+>
+
+  <div
+    class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4  "
+  >
+
+    <a routerLink="/home" class="logo-container">
+      <img src="/images/freshcart-logo.svg" alt="FreshCart Logo" />
+      <span class="logo-text px-3">FreshCart</span>
+    </a>
+
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+    <div
+      class="hidden items-center flex-grow  w-full md:flex md:w-auto"
+      id="navbar-default"
+    >
+      @if (isLogin()) {
+      <ul
+        class="links capitalize flex flex-col  p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive=" active"
+            class=" py-2 px-3 flex justify-center rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >{{ "navbar.home" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/products"
+            routerLinkActive="active"
+            class="flex justify-center py-2 px-3 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >{{ "navbar.products" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/categories"
+            routerLinkActive="active"
+            class="flex justify-center py-2 px-3 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >{{ "navbar.categories" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/brands"
+            routerLinkActive="active"
+            class="flex justify-center py-2 px-3 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >{{ "navbar.brands" | translate }}</a
+          >
+        </li>
+      </ul>
+
+      }
+
+      <ul
+        class="items-center justify-center ms-auto capitalize flex flex-row p-4 md:p-0 mt-4 border border-gray-100 dark:border-lime-500 rounded-lg md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 "
+      >
+
+<!-- Dark-Mode Theme Toggle -->
+    <div class="relative inline-block group">
+      <!-- current theme Icon -->
+      <button class=" rounded-full transition text-gray-500 dark:text-white ">
+        <i [ngClass]="selectedThemeIcon" class="text-[23px]"></i>
+      </button>
+      <!-- Theme Options -->
+      <div
+        class="absolute -mx-[200%] m-5 flex gap-2 bg-white dark:bg-gray-800  shadow-lg p-2 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300"
+      >
+        <button
+          (click)="setTheme('light')"
+          class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          <i class="fas fa-sun text-yellow-400"></i>
+        </button>
+        <button
+          (click)="setTheme('dark')"
+          class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          <i class="fas fa-moon text-gray-500 dark:text-sky-500"></i>
+        </button>
+        <button
+          (click)="setTheme('system')"
+          class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white-700"
+        >
+          <i class="fas fa-desktop dark:text-sky-500"></i>
+        </button>
+      </div>
+    </div>
+<!-- End Theme Toggle -->
+
+        <li>
+          <button
+            id="dropdownNavbarLink"
+            data-dropdown-toggle="dropdownNavbar"
+            class="  text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+          >
+            <span><i class="fas fa-globe-americas text-xl px-4 py-2 "></i> </span>
+
+          </button>
+
+          <div
+          id="dropdownNavbar"
+          class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600"
+        >
+          <ul
+            class="py-2 text-sm text-gray-700 dark:text-gray-200 text-center"
+            aria-labelledby="dropdownLargeButton"
+          >
+            <li>
+              <a
+                (click)="changeLang('en')"
+                [class.hidden]="currentLang('en')"
+                role="button"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white mx-auto"
+              >
+                EN
+              </a>
+            </li>
+            <li>
+              <a
+                (click)="changeLang('ar')"
+                [class.hidden]="currentLang('ar')"
+                role="button"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white mx-auto"
+              >
+                العربية
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        </li>
+
+        @if (!isLogin()) {
+        <li>
+          <a
+            routerLink="/register"
+            routerLinkActive="active"
+            class="block py-2 px-3 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >{{ "navbar.register" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="active"
+            class="block py-2 px-3 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >{{ "navbar.login" | translate }}</a
+          >
+        </li>
+        }@else {
+
+        <li>
+          <a
+            routerLink="/cart"
+            routerLinkActive="text-green-600 text-3xl"
+            class="block py-2 px-3 rounded-sm md:bg-transparent text-2xl text-gray-700 dark:text-white relative"
+            aria-current="page"
+          >
+            <i class="fas fa-shopping-cart"></i>
+            <span
+              class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full border border-green-400 dark:bg-green-900 dark:text-white absolute top-0 left-0"
+              >{{ cartCount() }}</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-2xl cursor-pointer px-3 py-2 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            routerLink="/wishlist"
+            aria-current="page"
+            ><i class="fa-solid fa-heart  text-red-900 dark:text-red-600"></i
+          ></a>
+        </li>
+
+        
+        <li role="button" (click)="logout()">
+          <a
+            class="block py-2 px-3 rounded-sm md:bg-transparent text-gray-700 dark:text-white"
+            aria-current="page"
+            >
+            <span><i class="fas fa-sign-out text-xl"></i></span></a
+          >
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+

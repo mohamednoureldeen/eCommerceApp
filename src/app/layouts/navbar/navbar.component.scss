@@ -1,0 +1,57 @@
+
+nav{
+
+  @apply dark:bg-gray-900 ;
+
+  li .active {
+    background-color: green;
+    color: white;
+    transition: all 0.6s;
+    border-radius: 20px;
+    @apply dark:bg-green-600
+}
+ }
+
+/* navbar scroll shrink */ 
+.navbar.shrink {
+  padding: .75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+  transform: translateY(-5px);
+}
+
+
+/*solving logo size*/ 
+ .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+    
+    img {
+      height: 100px; 
+      width: auto;
+      object-fit: cover;
+      object-position: left;
+
+      @media  ( max-width: 840px) { 
+        height: 40px;
+        width:36px;
+      }
+  
+      @media (min-width: 768px) {          
+        height: 40px;
+        width: 36px;
+      }
+    }
+  
+    .logo-text {
+      font-size: 1.25rem; 
+      font-weight: bold;
+      
+      @media (max-width: 1024px) {
+        display: none; 
+      }
+      
+    }
+  }
+
+  

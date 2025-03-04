@@ -1,0 +1,109 @@
+<!-- src/app/layouts/chat/chat.component.html -->
+<!-- Floating Chat Button -->
+<button (click)="toggleChat()" 
+class="fixed bottom-20 right-10 border-4 border-emerald-300 bg-green-500 mb-1 text-white 
+font-bold flex items-center gap-2 p-4 rounded-full shadow-lg 
+transition-transform transform hover:scale-110 active:scale-95 focus:outline-none z-[999]">
+<span class="text-sm hidden md:block">Chat With Us</span>
+<i class="fa-regular fa-comments fa-bounce fa-xl" style="color: #f3f5f7;"></i>
+</button>
+
+<!-- Chat Window (Visible when isChatOpen is true) -->
+@if (isChatOpen) {
+<div 
+    (click)="closeChat()"
+    class="z-[998] fixed inset-0 bg-black bg-opacity-50 flex sm:items-end items-center justify-center sm:justify-end">
+
+    <!-- Chat Box Container -->
+    <div 
+        id="chatWindow"
+        class="z-[9999] w-80 max-w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto transition-all duration-300 
+        sm:mr-4 sm:mb-40 sm:rounded-t-lg bottom-60 right-4"
+        (click)="$event.stopPropagation()">
+
+        <!-- Chat Header -->
+        <div class="bg-green-500 text-white flex justify-between items-center p-2">
+            <span>Fresh Cart Online Support</span>
+            <button 
+                (click)="toggleChat()" 
+                class="text-xl font-bold">
+                -
+            </button>
+        </div>
+
+        <!-- Chat Form -->
+        <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
+            <div class="p-4 flex flex-col gap-3">
+
+                <!-- Name Input Field -->
+                <input 
+                    type="text" 
+                    formControlName="name" 
+                    placeholder="Name (Required)"
+                    class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-50 dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-white">
+                
+                <!-- Name Validation Message -->
+                <div class="text-red-600 dark:text-red-400 text-sm">
+                    @let nameControl = chatForm.get('name');
+                    @if (nameControl?.hasError('required') && nameControl?.touched) {
+                        <p>*Your name/display name is required</p>
+                    }
+                </div>
+
+                <!-- Email Input Field -->
+                <input 
+                    type="email" 
+                    formControlName="email" 
+                    placeholder="Email (Required)"
+                    class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-50 dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-white">
+                
+                <!-- Email Validation Message -->
+                <div class="text-red-600 dark:text-red-400 text-sm">
+                    @let emailControl = chatForm.get('email');
+                    @if (emailControl?.hasError('required') && emailControl?.touched) {
+                        <p>*Email is required</p>
+                    }
+                </div>
+
+                <!-- Phone Input Field -->
+                <input 
+                    type="tel" 
+                    formControlName="phone" 
+                    placeholder="Phone (Required Eg: 0123456789)"
+                    class="p-2 border rounded-md focus:outline-none focus:ring-2 placeholder:text-[15px] focus:ring-green-500 bg-gray-50 dark:placeholder:text-gray-300 dark:bg-gray-700 dark:text-white">
+                
+                <!-- Phone Validation Message -->
+                <div class="text-red-600 dark:text-red-400 text-sm">
+                    @let phoneControl = chatForm.get('phone');
+                    @if (phoneControl?.hasError('required') && phoneControl?.touched) {
+                        <p>*Kindly provide an Egyptian phone number</p>
+                    }
+                </div>
+
+                <!-- Message Textarea Field -->
+                <textarea 
+                    formControlName="message" 
+                    placeholder="Message (Required)" 
+                    rows="3"
+                    class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-50 dark:bg-gray-700 dark:placeholder:text-gray-300 dark:text-white">
+                </textarea>
+
+                <!-- Submit Button -->
+                <button 
+                    type="submit" 
+                    [disabled]="chatForm.invalid" 
+                    (click)="sendMessage()"
+                    class="bg-green-500 text-white font-bold p-2 rounded-md disabled:bg-slate-500 hover:bg-green-600 transition-colors">
+                    Start Chat
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+}
+
+
+
+
+

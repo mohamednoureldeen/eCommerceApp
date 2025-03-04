@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// Owl Carousel
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+// Toastr
+@import 'ngx-toastr/toastr';
+
+
+body{
+    font-family: "Montserrat", serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    @apply bg-gradient-to-br from-gray-100 via-white to-gray-300 
+    dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 
+    text-gray-900 dark:text-gray-100
+    
+}
+.btn-main{
+    @apply block
+    bg-green-500 hover:bg-green-600 dark:bg-emerald-500 dark:hover:bg-emerald-600 disabled:bg-gray-700
+     text-white font-semibold py-2
+      rounded-b-lg transition duration-300
+      px-8 border border-green-700 rounded
+    w-[90%] 
+     mx-auto
+}
+.card {
+  button {
+        transform: translateY(100%);
+        opacity: 0;
+        transition: all 0.5s ease;
+  }
+  &:hover {
+      button{
+          transform: translateY(0);
+          opacity: 1;
+      }
+  }
+}
+@media (max-width: 1024px) {
+  .card button {
+    transform: translateY(0%) !important;
+    opacity: 1 !important;
+  }
+}
+
+
+

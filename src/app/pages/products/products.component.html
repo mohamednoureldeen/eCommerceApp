@@ -1,0 +1,69 @@
+<!-- src/app/pages/products/products.component.html -->
+
+<section>
+<!-- header -->
+  <header>
+      <h2 class="text-4xl font-bold text-center">Our Products </h2>
+        <p class="pt-6 pb-8 text-base max-w-2xl text-center m-auto">
+            Lorem ipsum dolor sit amet
+            consectetur adipisicing elit nam maxime quas fugiat tempore blanditiis, eveniet quia accusantium.
+        </p> 
+       <img src="/images/Frame 74.png" class="responsive-image py-4" alt="Fashion Banner">
+  </header>
+
+
+
+<!-- products -->
+<section>
+  <h2 class="text-4xl py-11">{{'home.Popular_Products'|translate}}</h2>
+<!-- search component ../../shared/components/ui/search-input -->
+  <app-search-input (searchChange)="onSearchInputChange($event)">
+
+  </app-search-input>
+</section>
+
+<!-- filter -->
+<div class="flex items-center  gap-2 p-2 ">
+  <!-- sort by -->
+  <div class="relative">
+    <span class="text-sm text-gray-500 dark:text-emerald-400 font-bold m-2">Sort By</span>
+    <select [(ngModel)]="sortKey" class="p-2  rounded-md bg-white dark:bg-gray-800 text-gray-700  dark:text-white shadow-sm">
+      <option value="title">Titel</option>
+      <option value="price">Price</option>
+      <option value="ratingsAverage">Ratings</option>
+    </select>
+    
+  </div>
+  <!-- show -->
+  <div class="relative">
+    <span class="text-sm text-gray-500 m-2 dark:text-emerald-400 font-bold">Show</span>
+    <select [(ngModel)]="itemsPerPage" class="p-2  rounded-md bg-white dark:bg-gray-800 text-gray-700 dark:text-white shadow-sm">
+      <option *ngFor="let n of [16, 24, 48]" [value]="n" [selected]="itemsPerPage === n">{{n}} </option>
+    </select>
+  </div>
+  <!-- reverse -->
+  <button (click)="reverse = !reverse" class="p-2 border-gray-600 border rounded-md bg-white dark:bg-gray-800 text-gray-700 dark:text-white shadow-sm ">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+      class="w-5 h-5 text-gray-700 dark:text-emerald-400 font-bold transition-transform "
+      [ngClass]="{'rotate-180': reverse}">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5L12 4.5 4.5 12" />
+    </svg>
+  </button>
+</div>
+</section>
+<!-- products -->
+<section>
+  <!-- src/app/shared/components/ui/card-for-orders -->
+<app-card-for-orders [products]=" sortedProducts | search: searchQuery | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage() }">
+
+</app-card-for-orders>
+</section>
+
+<!-- pagination -->
+<pagination-controls
+  class="flex justify-center mt-6 space-x-2 my-pagination "
+  (pageChange)="currentPage.set($event)"
+>
+</pagination-controls>
+
+

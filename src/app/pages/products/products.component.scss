@@ -1,0 +1,34 @@
+
+// pagination
+.my-pagination ::ng-deep .ngx-pagination .current {
+  @apply bg-green-400 rounded-full text-white  dark:bg-green-600;
+
+}
+.my-pagination ::ng-deep .ngx-pagination a {
+  @apply text-black dark:text-white hover:bg-green-400  rounded-full hover:text-white dark:hover:bg-green-600;
+}
+
+
+
+// banner
+.responsive-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+  
+    @media (max-width: 1024px) { 
+      height: 250px;
+    }
+  
+    @media (max-width: 768px) { 
+      height: 200px;
+      object-position: top; 
+    }
+  
+    @media (max-width: 480px) { 
+      height: 180px;
+      object-position: center; 
+    }
+  }
+  

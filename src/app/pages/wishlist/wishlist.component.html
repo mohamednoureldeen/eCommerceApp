@@ -1,0 +1,74 @@
+<!-- src/app/pages/wishlist/wishlist.component.html -->
+<section>
+
+  <!-- Wishlist Banner -->
+  <div class="wishlist-banner min-h-[300px] p-4 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white rounded-2xl">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+    <div class="text-content">
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">Manage Your Wishlist!</h2>
+      <p class="text-base md:text-lg mb-4">Keep track of your favorite items and plan your purchases with ease.</p>
+    </div>
+    <div class="image-content flex justify-center md:justify-end">
+      <img src="/images/wishlist-banner.webp" alt="Wishlist" class="max-w-full h-auto rounded-xl shadow-md" />
+    </div>
+  </div>
+</div>
+
+<!-- Wishlist Items -->
+<div class="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  px-3  md:-mt-[30px]">
+
+  @for (item of wishlistItems; track $index) {
+      @let prod = item;
+      <div
+      class="card w-full  border-[3px] border-green-400/50 dark:border-emerald-300/50 rounded-lg 
+      overflow-hidden shadow-md dark:shadow-lg bg-white dark:bg-gray-800 relative transition-transform  hover:scale-105"
+    >
+          
+          <!-- remove from wishlist -->
+          <i 
+              (click)="removeFromWishlist(prod.id)"
+              class="text-3xl absolute top-2 right-2 fa-heart  cursor-pointer fa-solid text-red-500"
+              title="Remove from Wishlist">
+          </i>
+          <div [routerLink]="['/details', prod.id]" class="cursor-pointer">
+              <div class="card-img">
+                  <img 
+                      [src]="prod.imageCover" 
+                      [alt]="prod.title" 
+                      class="w-full h-[200px] sm:h-[250px] object-contain bg-gray-100 dark:bg-gray-700 transition-all duration-300"
+                  />
+              </div>
+              
+              <!-- Card Body -->
+              <div class="card-body p-4">
+                  <h4 class="text-green-500 text-xs mb-1">{{ prod.category.name }}</h4>
+                  <h3 class="font-medium text-gray-800 dark:text-white mb-2">{{ prod.title.split(' ', 2).join(" ") }}</h3>
+                  <div class="flex justify-between items-center">
+                      <span class="text-gray-700 dark:text-gray-300">{{ prod.price }} EGP</span>
+                      <div class="flex items-center">
+                          <i class="fas fa-star text-yellow-400"></i>
+                          <span class="text-gray-500 dark:text-gray-400 ml-1">{{ prod.ratingsAverage }}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Add to Cart -->
+          <button 
+              (click)="addToCart(prod.id)" 
+              class="btn-main ">
+              Add to Cart
+          </button>
+      </div>
+  }
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+

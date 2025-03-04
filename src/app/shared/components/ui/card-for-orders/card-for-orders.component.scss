@@ -1,0 +1,22 @@
+.hearts-container {
+    @apply fixed top-0 left-0 w-screen h-screen pointer-events-none z-50;
+  }
+  
+  .heart {
+    @apply absolute text-2xl opacity-100;
+    animation: floatUp 2s ease-out forwards;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50px) scale(1.2);
+    }
+    100% {
+      transform: translateY(-100px) scale(0);
+      opacity: 0;
+    }
+  }

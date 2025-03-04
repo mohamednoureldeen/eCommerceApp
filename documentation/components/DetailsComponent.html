@@ -1,0 +1,1087 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>e-commerce-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">e-commerce-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DetailsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/details/details.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-details</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./details.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./details.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#activateRoute" >activateRoute</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#cartService" >cartService</a>
+                            </li>
+                            <li>
+                                <a href="#detailsProduct" >detailsProduct</a>
+                            </li>
+                            <li>
+                                <a href="#productImages" >productImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#toastrService" >toastrService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#wishlistService" >wishlistService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addToCart" >addToCart</a>
+                            </li>
+                            <li>
+                                <a href="#addToWishlist" >addToWishlist</a>
+                            </li>
+                            <li>
+                                <a href="#getProductDetails" >getProductDetails</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#setMainImage" >setMainImage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(renderer: Renderer2)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/details/details.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Renderer2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToCart"></a>
+                    <span class="name">
+                        <span ><b>addToCart</b></span>
+                        <a href="#addToCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addToCart(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/pages/details/details.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToWishlist"></a>
+                    <span class="name">
+                        <span ><b>addToWishlist</b></span>
+                        <a href="#addToWishlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addToWishlist(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/pages/details/details.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductDetails"></a>
+                    <span class="name">
+                        <span ><b>getProductDetails</b></span>
+                        <a href="#getProductDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProductDetails()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/pages/details/details.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/pages/details/details.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMainImage"></a>
+                    <span class="name">
+                        <span ><b>setMainImage</b></span>
+                        <a href="#setMainImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMainImage(img: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/pages/details/details.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>img</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activateRoute"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>activateRoute</b></span>
+                        <a href="#activateRoute"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ActivatedRoute)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/details/details.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cartService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>cartService</b></span>
+                        <a href="#cartService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(CartService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/details/details.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detailsProduct"></a>
+                    <span class="name">
+                        <span ><b>detailsProduct</b></span>
+                        <a href="#detailsProduct"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Iproduct | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/details/details.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productImages"></a>
+                    <span class="name">
+                        <span ><b>productImages</b></span>
+                        <a href="#productImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/details/details.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toastrService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>toastrService</b></span>
+                        <a href="#toastrService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ToastrService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/details/details.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="wishlistService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>wishlistService</b></span>
+                        <a href="#wishlistService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(WishlistService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/details/details.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { WishlistService } from &#x27;./../../core/services/wishlist/wishlist.service&#x27;;
+import { CartService } from &#x27;./../../core/services/cart/cart.service&#x27;;
+import { Component, inject, OnInit, signal } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Iproduct } from &#x27;../../shared/interfaces/iproduct&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+import { Renderer2 } from &#x27;@angular/core&#x27;;
+
+
+
+@Component({
+  selector: &#x27;app-details&#x27;,
+  imports: [],
+  templateUrl: &#x27;./details.component.html&#x27;,
+  styleUrl: &#x27;./details.component.scss&#x27;
+})
+export class DetailsComponent  implements OnInit{
+private readonly activateRoute &#x3D; inject(ActivatedRoute);
+private readonly cartService &#x3D; inject(CartService);
+private readonly toastrService &#x3D; inject(ToastrService);
+private readonly wishlistService &#x3D; inject(WishlistService);
+
+
+detailsProduct &#x3D; signal&lt;Iproduct | null&gt;(null);
+productImages &#x3D; signal&lt;string[]&gt;([]);
+
+constructor(private renderer: Renderer2) {}
+
+ngOnInit(): void {
+  this.getProductDetails();
+}
+
+
+
+// get product details
+  getProductDetails(): void {
+    this.activateRoute.data.subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(res);
+          this.detailsProduct.set(res[&#x27;product&#x27;].data); // البيانات من الـ Resolver
+          this.productImages.set(res[&#x27;product&#x27;].data.images);
+      },
+      error: (err) &#x3D;&gt; {
+        console.log(err);
+      }
+  });
+  }
+
+// set main image
+setMainImage(img: string): void {
+  const mainImage &#x3D; this.renderer.selectRootElement(&#x27;#mainImage&#x27;, true);
+  this.renderer.setAttribute(mainImage, &#x27;src&#x27;, img);
+}
+
+// add to cart
+  addToCart(id:string):void{
+    this.cartService.addProductToCart(id).subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(res);
+        this.toastrService.success(&#x27;Product added to cart successfully&#x27;, &#x27;Success&#x27;, {
+          timeOut: 3000,
+          closeButton: true,
+          progressBar: true
+        });
+        this.cartService.cartNumber.set(res.numOfCartItems);
+      }, 
+      error: (err) &#x3D;&gt; {
+        console.log(err);
+      }
+    })
+  }
+
+  // add to wishlist
+  addToWishlist(id:string):void{
+    this.wishlistService.addProductToWishlist(id).subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(res);
+        this.toastrService.success(&#x27;Product added to wishlist successfully&#x27;, &#x27;Success&#x27;, {
+          timeOut: 3000,
+          closeButton: true,
+          progressBar: true
+        });
+      }, 
+      error: (err) &#x3D;&gt; {
+        console.log(err);
+      }
+    })
+  }
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- src/app/pages/details/details.component.html --&gt;
+&lt;section&gt;
+  @if (detailsProduct()) {
+  &lt;div class&#x3D;&quot;container mx-auto px-4 py-8&quot;&gt;
+    &lt;div class&#x3D;&quot;grid grid-cols-1 md:grid-cols-2 gap-8&quot;&gt;
+      
+      &lt;!-- Product Images --&gt;
+      &lt;div class&#x3D;&quot;flex flex-col gap-4  md:flex-row items-center ms-auto md:items-start  &quot;&gt;
+        &lt;!-- small images --&gt;
+        &lt;div class&#x3D;&quot;flex md:flex-col gap-2 &quot;&gt;
+          @for (img of productImages(); track $index) {
+            &lt;img
+              [src]&#x3D;&quot;img&quot;
+              alt&#x3D;&quot;Thumbnail&quot;
+              class&#x3D;&quot;w-16 h-16 md:w-20 md:h-20 shadow-2xl rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-transform duration-200 hover:scale-110&quot;
+              (click)&#x3D;&quot;setMainImage(img)&quot;
+              (mouseenter)&#x3D;&quot;setMainImage(img)&quot;
+            /&gt;
+          }
+        &lt;/div&gt;
+        &lt;!-- main image --&gt;
+         &lt;div  class&#x3D;&quot;w-full md:w-3/4 md:hover:scale-[1.3] transition-transform duration-200 cursor-zoom-in &quot;&gt;
+          &lt;img
+            [src]&#x3D;&quot;detailsProduct()?.imageCover&quot;
+            alt&#x3D;&quot;{{ detailsProduct()?.title }}&quot;
+            class&#x3D;&quot;w-full max-w-[450px] h-auto rounded-lg shadow-md&quot;
+            id&#x3D;&quot;mainImage&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Product Details --&gt;
+      &lt;div class&#x3D;&quot;w-full&quot;&gt;
+        &lt;h2 class&#x3D;&quot;text-3xl font-bold mb-2&quot;&gt;{{ detailsProduct()?.title }}&lt;/h2&gt;
+        &lt;p class&#x3D;&quot;text-gray-600 dark:text-gray-400 mb-2&quot;&gt;
+          SKU: {{ detailsProduct()?.sold }}
+        &lt;/p&gt;
+        &lt;span class&#x3D;&quot;text-2xl font-bold text-indigo-600 dark:text-indigo-400&quot;&gt;
+          {{ detailsProduct()?.price }} L.E
+        &lt;/span&gt;
+
+        &lt;!-- Ratings --&gt;
+        &lt;div class&#x3D;&quot;flex items-center mt-4&quot;&gt;
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;
+            class&#x3D;&quot;w-6 h-6 text-yellow-500&quot;&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+          &lt;/svg&gt;
+          &lt;span class&#x3D;&quot;ml-2 text-gray-600 dark:text-gray-400&quot;&gt;
+            {{ detailsProduct()?.ratingsAverage }} ({{ detailsProduct()?.ratingsQuantity }} reviews)
+          &lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;p class&#x3D;&quot;text-gray-700 dark:text-gray-300 mt-4&quot;&gt;
+          {{ detailsProduct()?.description }}
+        &lt;/p&gt;
+        &lt;div class&#x3D;&quot;mt-4&quot;&gt;
+          &lt;h3 class&#x3D;&quot;text-lg font-semibold&quot;&gt;Color:&lt;/h3&gt;
+          &lt;div class&#x3D;&quot;flex space-x-2 mt-2&quot;&gt;
+            &lt;button class&#x3D;&quot;w-8 h-8 bg-black rounded-full focus:ring-2 focus:ring-black&quot;&gt;&lt;/button&gt;
+            &lt;button class&#x3D;&quot;w-8 h-8 bg-gray-300 rounded-full focus:ring-2 focus:ring-gray-300&quot;&gt;&lt;/button&gt;
+            &lt;button class&#x3D;&quot;w-8 h-8 bg-blue-500 rounded-full focus:ring-2 focus:ring-blue-500&quot;&gt;&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mt-4&quot;&gt;
+          &lt;span class&#x3D;&quot;font-bold text-gray-700 dark:text-gray-300&quot;&gt;Availability:&lt;/span&gt;
+          &lt;span class&#x3D;&quot;text-gray-600 dark:text-gray-300&quot;&gt;
+            In Stock: {{ detailsProduct()?.quantity }}
+          &lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Buttons --&gt;
+        &lt;div class&#x3D;&quot;flex space-x-4 mt-6&quot;&gt;
+          &lt;button (click)&#x3D;&quot;addToCart(detailsProduct()!.id)&quot;
+            class&#x3D;&quot;bg-green-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-shopping-cart&quot;&gt;&lt;/i&gt; Add to Cart
+          &lt;/button&gt;
+          &lt;button
+            (click)&#x3D;&quot;addToWishlist(detailsProduct()!.id)&quot;
+            class&#x3D;&quot;bg-gray-200 flex gap-2 items-center text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:ring-2 focus:ring-gray-500&quot;&gt;
+            ❤️ Wishlist
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;!-- Key Features --&gt;
+        &lt;div class&#x3D;&quot;mt-6&quot;&gt;
+          &lt;h3 class&#x3D;&quot;text-lg font-semibold&quot;&gt;Key Features:&lt;/h3&gt;
+          &lt;ul class&#x3D;&quot;list-disc list-inside text-gray-700 dark:text-gray-300&quot;&gt;
+            &lt;li&gt;{{ detailsProduct()?.description }}&lt;/li&gt;
+            &lt;li&gt;{{ detailsProduct()?.category?.name }}&lt;/li&gt;
+            &lt;li&gt;{{ detailsProduct()?.brand?.name }}&lt;/li&gt;
+            &lt;img [src]&#x3D;&quot;detailsProduct()?.brand?.image&quot; alt&#x3D;&quot;Brand&quot; class&#x3D;&quot;h-10 w-auto mt-2&quot; /&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+} @else {
+  &lt;div class&#x3D;&quot;flex items-center justify-center h-[calc(100vh-4rem)]&quot;&gt;
+    &lt;div class&#x3D;&quot;text-center&quot;&gt;
+      &lt;h2 class&#x3D;&quot;text-2xl font-bold text-gray-800 dark:text-white mb-4&quot;&gt;Product Not Found&lt;/h2&gt;
+      &lt;p class&#x3D;&quot;text-gray-600 dark:text-gray-300&quot;&gt;The product you are looking for does not exist.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+}
+&lt;/section&gt;
+
+
+
+
+
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- src/app/pages/details/details.component.html --><section>  @if (detailsProduct()) {  <div class="container mx-auto px-4 py-8">    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">            <!-- Product Images -->      <div class="flex flex-col gap-4  md:flex-row items-center ms-auto md:items-start  ">        <!-- small images -->        <div class="flex md:flex-col gap-2 ">          @for (img of productImages(); track $index) {            <img              [src]="img"              alt="Thumbnail"              class="w-16 h-16 md:w-20 md:h-20 shadow-2xl rounded-md cursor-pointer opacity-70 hover:opacity-100 transition-transform duration-200 hover:scale-110"              (click)="setMainImage(img)"              (mouseenter)="setMainImage(img)"            />          }        </div>        <!-- main image -->         <div  class="w-full md:w-3/4 md:hover:scale-[1.3] transition-transform duration-200 cursor-zoom-in ">          <img            [src]="detailsProduct()?.imageCover"            alt="{{ detailsProduct()?.title }}"            class="w-full max-w-[450px] h-auto rounded-lg shadow-md"            id="mainImage"          />        </div>      </div>      <!-- Product Details -->      <div class="w-full">        <h2 class="text-3xl font-bold mb-2">{{ detailsProduct()?.title }}</h2>        <p class="text-gray-600 dark:text-gray-400 mb-2">          SKU: {{ detailsProduct()?.sold }}        </p>        <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">          {{ detailsProduct()?.price }} L.E        </span>        <!-- Ratings -->        <div class="flex items-center mt-4">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"            class="w-6 h-6 text-yellow-500">            <path fill-rule="evenodd"              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"              clip-rule="evenodd" />          </svg>          <span class="ml-2 text-gray-600 dark:text-gray-400">            {{ detailsProduct()?.ratingsAverage }} ({{ detailsProduct()?.ratingsQuantity }} reviews)          </span>        </div>        <p class="text-gray-700 dark:text-gray-300 mt-4">          {{ detailsProduct()?.description }}        </p>        <div class="mt-4">          <h3 class="text-lg font-semibold">Color:</h3>          <div class="flex space-x-2 mt-2">            <button class="w-8 h-8 bg-black rounded-full focus:ring-2 focus:ring-black"></button>            <button class="w-8 h-8 bg-gray-300 rounded-full focus:ring-2 focus:ring-gray-300"></button>            <button class="w-8 h-8 bg-blue-500 rounded-full focus:ring-2 focus:ring-blue-500"></button>          </div>        </div>        <div class="mt-4">          <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>          <span class="text-gray-600 dark:text-gray-300">            In Stock: {{ detailsProduct()?.quantity }}          </span>        </div>        <!-- Buttons -->        <div class="flex space-x-4 mt-6">          <button (click)="addToCart(detailsProduct()!.id)"            class="bg-green-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500">            <i class="fas fa-shopping-cart"></i> Add to Cart          </button>          <button            (click)="addToWishlist(detailsProduct()!.id)"            class="bg-gray-200 flex gap-2 items-center text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:ring-2 focus:ring-gray-500">            ❤️ Wishlist          </button>        </div>        <!-- Key Features -->        <div class="mt-6">          <h3 class="text-lg font-semibold">Key Features:</h3>          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">            <li>{{ detailsProduct()?.description }}</li>            <li>{{ detailsProduct()?.category?.name }}</li>            <li>{{ detailsProduct()?.brand?.name }}</li>            <img [src]="detailsProduct()?.brand?.image" alt="Brand" class="h-10 w-auto mt-2" />          </ul>        </div>      </div>    </div>  </div>} @else {  <div class="flex items-center justify-center h-[calc(100vh-4rem)]">    <div class="text-center">      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Product Not Found</h2>      <p class="text-gray-600 dark:text-gray-300">The product you are looking for does not exist.</p>    </div>  </div>}</section></div>'
+    var COMPONENTS = [{'name': 'AllordersComponent', 'selector': 'app-allorders'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BrandsComponent', 'selector': 'app-brands'},{'name': 'CardForOrdersComponent', 'selector': 'app-card-for-orders'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotpasswordComponent', 'selector': 'app-forgotpassword'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotfoundComponent', 'selector': 'app-notfound'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchInputComponent', 'selector': 'app-search-input'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DetailsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DetailsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
