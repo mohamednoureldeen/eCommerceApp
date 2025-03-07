@@ -2,7 +2,6 @@ import { CartService } from './../../core/services/cart/cart.service';
 import { MytranslateService } from './../../core/services/myTranslate/mytranslate.service';
 import { AuthService } from './../../core/services/auth/auth.service';
 import { Component, computed, HostListener, inject, input, InputSignal, Renderer2,Signal} from '@angular/core';
-import { FlowbiteService } from '../../core/services/flowbite/flowbite.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AppTheme, DarkThemeSelectorService } from '../../core/services/darkmood/dark-theme-selector.service';
@@ -15,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-constructor(private flowbiteService: FlowbiteService, 
+constructor( 
   private renderer:Renderer2,
   protected darkThemeSelectorService: DarkThemeSelectorService
 ) {
@@ -33,15 +32,9 @@ cartCount: Signal<number> = computed(() => this.cartService.cartNumber());
 isScrolled = false;
   
 ngOnInit(): void {
-
-    this.flowbiteloaded();
     this.cartCountNumber();
   }
 
-flowbiteloaded(): void {
-    this.flowbiteService.loadFlowbite(flowbite => {
-    });
-  }
 
   cartCountNumber(): void {
     this.cartService.getLoggedUserCart().subscribe({
