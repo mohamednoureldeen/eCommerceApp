@@ -73,7 +73,7 @@ export class CartComponent implements OnInit {
         });
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your order has been removed.",
           icon: "success",
           theme:'auto',
         });
@@ -84,10 +84,26 @@ export class CartComponent implements OnInit {
 
 // clear cart
   clearItems():void{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      theme:'auto',
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
     this.cartService.clearCart().subscribe({
       next:(res)=>{
         console.log(res);
         if(res.message === 'success'){
+          this.toastrService.success('Cart cleared successfully', 'Success', {
+            timeOut: 3000,
+            closeButton: true,
+            progressBar: true
+          });
           this.cartDetails = {} as ICart;
           this.cartService.cartNumber.set(0);
         }
@@ -95,7 +111,16 @@ export class CartComponent implements OnInit {
       error:(err)=>{
         console.log(err);
       }
-    })
+    });
+
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your cart has been cleared.",
+      icon: "success",
+      theme:'auto',
+    });
+      }
+    });
   }
 
 // update count
