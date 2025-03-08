@@ -6,6 +6,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AppTheme, DarkThemeSelectorService } from '../../core/services/darkmood/dark-theme-selector.service';
 import { CommonModule } from '@angular/common';
+import { FlowbiteService } from '../../core/services/flowbite/flowbite.service';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +18,8 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
 constructor( 
   private renderer:Renderer2,
-  protected darkThemeSelectorService: DarkThemeSelectorService
+  protected darkThemeSelectorService: DarkThemeSelectorService,
+  private flowbiteService: FlowbiteService
 ) {
   this.loadCurrentTheme();
 }
@@ -33,6 +36,9 @@ isScrolled = false;
   
 ngOnInit(): void {
     this.cartCountNumber();
+    this.flowbiteService.loadFlowbite((flowbite) => {
+      initFlowbite();
+    });
   }
 
 
