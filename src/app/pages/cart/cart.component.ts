@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, remove it!"
     }).then((result) => {
       if (result.isConfirmed) {
         this.cartService.removeSpecificCartItem(id).subscribe({
@@ -92,7 +92,7 @@ export class CartComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, clear it!"
     }).then((result) => {
       if (result.isConfirmed) {
     this.cartService.clearCart().subscribe({
@@ -114,7 +114,7 @@ export class CartComponent implements OnInit {
     });
 
     Swal.fire({
-      title: "Deleted!",
+      title: "Cleared!",
       text: "Your cart has been cleared.",
       icon: "success",
       theme:'auto',
